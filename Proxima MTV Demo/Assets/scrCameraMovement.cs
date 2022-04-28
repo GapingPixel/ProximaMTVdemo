@@ -20,7 +20,7 @@ public class scrCameraMovement : MonoBehaviour
             cameraOffset += 0.2f;
         }
 
-        if (cameraOffset >= 4)
+        if (cameraOffset >= 2)
         {
             cameraOffset = 0f;
             //Mathf.Approximately(cameraOffset, 1);
