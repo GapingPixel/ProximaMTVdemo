@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - PlayerProjectile
+  - EnemyProjectile
+  - Tile
   layers:
   - Default
   - TransparentFX
@@ -32,12 +36,30 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Tiles
+  - FX
+  - Entities
+  - HUD
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 811544071
+    locked: 0
+  - name: Tiles
+    uniqueID: 2684063885
+    locked: 0
+  - name: FX
+    uniqueID: 3499384635
+    locked: 0
+  - name: Entities
+    uniqueID: 2695171017
+    locked: 0
+  - name: Frontground
+    uniqueID: 1546616889
+    locked: 0
+  - name: UI
+    uniqueID: 3137701135
     locked: 0

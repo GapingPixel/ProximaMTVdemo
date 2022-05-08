@@ -1,26 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class scrPlayerController : MonoBehaviour
 {
     public GameObject Bullet;
-    private float timeRemaining = 0;
-    bool timerIsRunning = false;
-    bool secondBulletShot = false;
-    private Vector2 bulletVector = Vector2.zero;
-    private Rigidbody2D rb;
-    private Camera cam;
-    private float camHeight;
-    private float camWidth;
+    public GameObject Explosion;
+    private float _timeRemaining;
+    private bool _timerIsRunning;
+    private bool _secondBulletShot;
+    private Vector2 _bulletVector = Vector2.zero;
+    private GameManager _manager;
+    private Camera _cam;
+    private float _camHeight;
+    private float _camWidth;
+    /*
+    private Rigidbody2D _rb;
     private Vector2 _moveDirection = Vector2.zero;
+    */
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        cam = Camera.main;
-        camHeight = 2f * cam.orthographicSize;
-        camWidth = camHeight * cam.aspect;
+        //_rb = gameObject.GetComponent<Rigidbody2D>();
+        _cam = Camera.main;
+        _camHeight = 2f * _cam.orthographicSize;
+        _camWidth = _camHeight * _cam.aspect;
+        _manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        //_manager.GameOver = false;
     }
 
     // Update is called once per frame
@@ -30,14 +38,16 @@ public class scrPlayerController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         _moveDirection = new Vector2(moveX, moveY).normalized;
         rb.velocity = new Vector2(_moveDirection.x * moveSpeed, _moveDirection.y * moveSpeed);*/
-        float moveSpeed = 50f;
+        float moveSpeed = 70f;
         
         bool rightKey = Input.GetKey("d");
         bool leftKey  = Input.GetKey("a");
         bool upKey = Input.GetKey("w");
         bool downKey  = Input.GetKey("s");
-        bool buttonA = Input.GetKeyDown("p");
-        bool buttonB = Input.GetKeyDown("l");
+        var buttonA = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("p")), Convert.ToSingle(Input.GetMouseButtonDown(0)) ));
+        var buttonB = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("l")), Convert.ToSingle(Input.GetMouseButtonDown(1)) ));
+        //if (buttonB) SceneManager.LoadScene("MainMenu"); 
+        
         bool buttonX = Input.GetKeyDown("o");
         bool buttonY = Input.GetKeyDown("k");
         if (rightKey)
@@ -45,58 +55,89 @@ public class scrPlayerController : MonoBehaviour
             //rb.velocity = (Vector2.right * Time.deltaTime * moveSpeed);
             transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
             //transform.position = new Vector2(transform.position.x + moveSpeed, transform.position.y);
-        } 
+        }
+        
+
         if (leftKey)
         {
             transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
         }
+        var rot = gameObject.transform.localRotation.eulerAngles; //get the angles
         if (upKey)
         {
             transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
-        } 
+            
+            //rot.Set(40f, 0f, 0f); 
+            /*if (transform.rotation.x < 40)
+            {
+                rot.Set(transform.rotation.x + 1, 0f, 0f); //set the angles
+            }
+            else
+            {
+                rot.Set(transform.rotation.x, 0f, 0f); //set the angles
+            }*/
+        }
         if (downKey)
         {
             transform.Translate(Vector2.down * Time.deltaTime * moveSpeed);
+            //rot.Set(163f, 0f, 0f); 
         }
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, cam.transform.position.x-(camWidth/2)+25, cam.transform.position.x+(camWidth/2)-25), Mathf.Clamp(transform.position.y, -190f, -35f));
+        if (!upKey && !downKey)
+        {
+            //rot.Set(0f, 0f, 0f); 
+        }
+        //gameObject.transform.localRotation = Quaternion.Euler(rot); //update the transform
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, _cam.transform.position.x-(_camWidth/2)+25, _cam.transform.position.x+(_camWidth/2)-25), Mathf.Clamp(transform.position.y, -218f, -12f));
         
         //Fire
-        if (buttonA && !timerIsRunning)
+        if (buttonA && !_timerIsRunning)
         {
-            Instantiate(Bullet, new Vector2(transform.position.x+23, transform.position.y), Quaternion.identity);
-            timerIsRunning = true;
-            timeRemaining = 0.25f;
-            bulletVector = new Vector2(transform.position.x+23, transform.position.y);
+            _bulletVector = new Vector2(transform.position.x+8, transform.position.y);
+            Instantiate(Bullet, _bulletVector, Quaternion.identity);
+            _timerIsRunning = true;
+            _timeRemaining = 0.20f;
+            
         }
 
-        if (timerIsRunning)
+        if (_timerIsRunning)
         {
-            if (timeRemaining > 0)
+            if (_timeRemaining > 0)
             {
-                timeRemaining -= Time.deltaTime;
+                _timeRemaining -= Time.deltaTime;
             }
-            if (timeRemaining <= 0.2f && !secondBulletShot)
+            if (_timeRemaining <= 0.16f && !_secondBulletShot)
             {
-                Instantiate(Bullet,bulletVector, Quaternion.identity);
-                secondBulletShot = true;
+                Instantiate(Bullet,_bulletVector, Quaternion.identity);
+                _secondBulletShot = true;
             }
-            else if (timeRemaining <= 0)
+            else if (_timeRemaining <= 0)
             {
-                timeRemaining = 0;
-                timerIsRunning = false;
-                secondBulletShot = false;
+                _timeRemaining = 0;
+                _timerIsRunning = false;
+                _secondBulletShot = false;
             }
         }
 
     }
+    
+    
+    public void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Tile"))
+        {
+            Destroy(gameObject);
+        } else if (other.gameObject.CompareTag("EnemyProjectile"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+    }
 
-    private void FixedUpdated()
+    private void OnDestroy()
     {
-        
-        
-
+        Instantiate(Explosion,transform.position, Quaternion.identity);
+        _manager.Lives--;
+        print(_manager.Lives);
         
     }
-
     
 }
