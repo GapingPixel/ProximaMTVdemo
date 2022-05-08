@@ -27,8 +27,8 @@ public class scrPlayerController : MonoBehaviour
         _cam = Camera.main;
         _camHeight = 2f * _cam.orthographicSize;
         _camWidth = _camHeight * _cam.aspect;
-        _manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        //_manager.GameOver = false;
+        _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        _manager.GameOver = false;
     }
 
     // Update is called once per frame
@@ -134,10 +134,13 @@ public class scrPlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Instantiate(Explosion,transform.position, Quaternion.identity);
-        _manager.Lives--;
-        print(_manager.Lives);
-        
+        if (!_manager.GameOver)
+        {
+            Instantiate(Explosion, transform.position, Quaternion.identity);
+            _manager.Lives--;
+            print(_manager.Lives);
+        }
+
     }
     
 }

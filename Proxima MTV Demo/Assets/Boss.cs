@@ -21,7 +21,7 @@ public class Boss : PARENTenemy
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _cam = Camera.main;
-        _manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
     }
 
@@ -30,10 +30,10 @@ public class Boss : PARENTenemy
         _startY = transform.position.y;
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
         _manager.RestartGame();
-    }
+    }*/
 
     private void FixedUpdate()
     {

@@ -16,7 +16,7 @@ public class scrUI : MonoBehaviour
     {
         _cam = Camera.main;
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
