@@ -44,7 +44,8 @@ public class scrPlayerController : MonoBehaviour
         bool leftKey  = Input.GetKey("a");
         bool upKey = Input.GetKey("w");
         bool downKey  = Input.GetKey("s");
-        var buttonA = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("p")), Convert.ToSingle(Input.GetMouseButtonDown(0)) ));
+        //var buttonA = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("p")), Convert.ToSingle(Input.GetMouseButtonDown(0)) ));
+        var buttonA = Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown(0);
         var buttonB = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("l")), Convert.ToSingle(Input.GetMouseButtonDown(1)) ));
         //if (buttonB) SceneManager.LoadScene("MainMenu"); 
         
