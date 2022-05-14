@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEditor;
 public class scrPlayerController : MonoBehaviour
 {
     public GameObject Bullet;
@@ -28,7 +28,8 @@ public class scrPlayerController : MonoBehaviour
         _camHeight = 2f * _cam.orthographicSize;
         _camWidth = _camHeight * _cam.aspect;
         _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        _manager.GameOver = false;
+        GameManager.GameOver = false;
+        GameManager.Reload = false;
     }
 
     // Update is called once per frame
@@ -135,11 +136,11 @@ public class scrPlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (!_manager.GameOver)
+        if (!GameManager.GameOver)
         {
             Instantiate(Explosion, transform.position, Quaternion.identity);
-            _manager.Lives--;
-            print(_manager.Lives);
+            GameManager.Lives--;
+            print(GameManager.Lives);
         }
 
     }

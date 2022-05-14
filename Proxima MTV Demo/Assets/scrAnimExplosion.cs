@@ -20,9 +20,10 @@ public class scrAnimExplosion : MonoBehaviour
 
     void OnDestroy()
     {
-        if (_manager.Lives >= 0 && !_manager.GameOver)
+        if (GameManager.Lives >= 0 && !GameManager.GameOver)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameManager.Reload = true;
         }
 
         /*foreach (InstantiateOnDestroy i in indObjectsOfType<InstantiateOnDestroy>())

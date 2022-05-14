@@ -28,6 +28,10 @@ public class BossDestroyAnim : MonoBehaviour
     void OnDestroy()
     {
         //Drop Item
+        if (!GameManager.Reload)
+        {
+            
+        }
 
     }
 }

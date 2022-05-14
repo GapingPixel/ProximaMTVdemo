@@ -49,6 +49,8 @@ public class PARENTenemy : MonoBehaviour
     
     private void OnDestroy()
     {
+        if (GameManager.Reload) return;
+        
         Instantiate(Explosion,transform.position, Quaternion.identity);
     }
     

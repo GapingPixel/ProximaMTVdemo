@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private scrPlayerController _player;
-    private int _count = -1;
-    [HideInInspector]public int Lives = 2;
-    [HideInInspector]public bool GameOver = false;
+    [HideInInspector]public static int Lives = 2;
+    [HideInInspector]public static bool GameOver = false;
+    [HideInInspector]public static bool Reload = false;
     public enum GameState
     {
         Play,

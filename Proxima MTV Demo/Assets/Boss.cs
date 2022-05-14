@@ -22,7 +22,6 @@ public class Boss : PARENTenemy
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _cam = Camera.main;
         _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-
     }
 
     private void Start()

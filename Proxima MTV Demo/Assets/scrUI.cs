@@ -23,8 +23,7 @@ public class scrUI : MonoBehaviour
     void Update()
     {
         transform.position = new Vector2(_cam.transform.position.x-130, _cam.transform.position.y-80);
-        _spriteRenderer.sprite = Lives[_manager.Lives];
+        _spriteRenderer.sprite = Lives[GameManager.Lives];
         //print(_manager.Lives); 
-
     }
 }
