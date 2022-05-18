@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     private scrPlayerController _player;
     [NonSerialized]public static int Lives = 2;
+    [NonSerialized] public static int Checkpoint = 0;
     [NonSerialized]public static bool GameOver = false;
     [NonSerialized]public static bool Reload = false;
      
@@ -35,11 +36,12 @@ public class GameManager : MonoBehaviour
         if (buttonB) SceneManager.LoadScene("MainMenu"); */
     }
 
-    public void RestartGame()
+    public static void RestartGame()
     {
         SceneManager.LoadScene("MainMenu");
         Lives = 2;
         GameOver = true;
+        Checkpoint = 0;
     }
     
 

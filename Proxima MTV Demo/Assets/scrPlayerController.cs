@@ -45,6 +45,21 @@ public class scrPlayerController : MonoBehaviour
     void Awake()
     {
         SetUpActions();
+        switch (GameManager.Checkpoint)
+        {
+            case 1:
+                transform.position = new Vector3(791, transform.position.y, transform.position.z);
+                break;
+
+            case 2:
+                transform.position = new Vector3(2085, transform.position.y, transform.position.z);
+                break;
+
+            case 3:
+                transform.position = new Vector3(200, transform.position.y, transform.position.z);
+                break;
+            
+        }
     }
 
     private void OnMovement(InputValue value)
@@ -169,13 +184,19 @@ public class scrPlayerController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other) {
         if (hurtTimer > 0) return;
         var maxHurtTime = 50;
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Tile"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Hp--;
             CheckHp();
             Destroy(other.gameObject);
             hurtTimer = maxHurtTime;
-        } else if (other.gameObject.CompareTag("EnemyProjectile"))
+        }
+        else if (other.gameObject.CompareTag("Tile"))
+        {
+            Hp=0;
+            CheckHp();
+        }
+        else if (other.gameObject.CompareTag("EnemyProjectile"))
         {
             Hp--;
             CheckHp();

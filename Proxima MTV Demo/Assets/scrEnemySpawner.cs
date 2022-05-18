@@ -16,6 +16,11 @@ public class scrEnemySpawner : MonoBehaviour
         _cam = Camera.main;
         _camHeight = 2f * _cam.orthographicSize;
         _camWidth = _camHeight * _cam.aspect;
+
+        if (GameManager.Checkpoint != 0)
+        {
+            Destroy(gameObject);
+        }
     }
     
     
