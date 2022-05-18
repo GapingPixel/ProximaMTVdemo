@@ -18,7 +18,7 @@ public class scrEnemyForward : PARENTenemy
     // Start is called before the first frame update
     void Start()
     {
-        _angularVector = (Vector2)(Quaternion.Euler(0,0,180) * (Vector2.right*_speed* Time.deltaTime)); 
+        _angularVector = (Vector2)(Quaternion.Euler(0,0,180) * (Vector2.right*_speed* Time.fixedDeltaTime)); 
     }
     
     public override void Update()
@@ -41,12 +41,12 @@ public class scrEnemyForward : PARENTenemy
             case Patterns.Down:
             if (_count == 50)
             {
-                _angularVector = (Vector2) (Quaternion.Euler(0, 0, 67) * (Vector2.right * _speed * Time.deltaTime));
+                _angularVector = (Vector2) (Quaternion.Euler(0, 0, 67) * (Vector2.right * _speed * Time.fixedDeltaTime));
                 _speed = 10;
             }
             else if (_count == 75)
             {
-                _angularVector = (Vector2) (Quaternion.Euler(0, 0, 0) * (Vector2.right * _speed * Time.deltaTime));
+                _angularVector = (Vector2) (Quaternion.Euler(0, 0, 0) * (Vector2.right * _speed * Time.fixedDeltaTime));
                 //count = 100;
             }
             break;
@@ -54,12 +54,12 @@ public class scrEnemyForward : PARENTenemy
             case Patterns.Up:
                 if (_count == 50)
                 {
-                    _angularVector = (Vector2) (Quaternion.Euler(0, 0, 301) * (Vector2.right * _speed * Time.deltaTime));
+                    _angularVector = (Vector2) (Quaternion.Euler(0, 0, 301) * (Vector2.right * _speed * Time.fixedDeltaTime));
                     _speed = 10;
                 }
                 else if (_count == 75)
                 {
-                    _angularVector = (Vector2) (Quaternion.Euler(0, 0, 0) * (Vector2.right * _speed * Time.deltaTime));
+                    _angularVector = (Vector2) (Quaternion.Euler(0, 0, 0) * (Vector2.right * _speed * Time.fixedDeltaTime));
                     //count = 100;
                 }
                 break;
