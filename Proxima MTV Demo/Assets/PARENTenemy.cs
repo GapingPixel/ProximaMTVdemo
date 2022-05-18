@@ -36,6 +36,11 @@ public class PARENTenemy : MonoBehaviour
             Hp-= other.GetComponent<scrBullet>().Dmg;
             CheckHp(ref Hp);
             Destroy(other.gameObject);
+        } else if (other.gameObject.CompareTag("PlayerMissile"))
+        {
+            Hp-= other.GetComponent<Missile>().Dmg;
+            CheckHp(ref Hp);
+            Destroy(other.gameObject);
         }
     }
 

@@ -13,7 +13,7 @@ public class Boss : PARENTenemy
     private float _speed = 40;
     private bool _moveUp = true;
     private bool _intro = true;
-    private Camera _cam;
+    //private Camera _cam;
     private GameManager _manager;
     private int _count;
     // Start is called before the first frame update

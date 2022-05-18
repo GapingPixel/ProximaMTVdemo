@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1167978787083548720
 SpriteRenderer:
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1599796279
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 43a53eab9dbdf3f4c8e3625b64276818, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,7 +100,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 7105645622343968187, guid: b18c52f6bbd436f43a12044c329359f1, type: 3}
+  Missile: {fileID: 2112250037690664308, guid: 1104daa9f9185be4b83f69a6d87d88dd, type: 3}
   Explosion: {fileID: 3008160703026248401, guid: 70f9a73b993fc2d41a7a54edd9db3366, type: 3}
+  ShootAction:
+    m_Name: Shoot
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: deae4e43-3e60-4f93-ba1f-34e1c9439894
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!50 &1167978787083548724
 Rigidbody2D:
   serializedVersion: 4

@@ -1,13 +1,23 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Random = UnityEngine.Random;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEditor;
+//using UnityEngine.SceneManagement;
+//using UnityEditor;
+using UnityEngine.InputSystem;
+
+
+//using UnityEngine.InputSystem.Controls;
+
+
+
 public class scrPlayerController : MonoBehaviour
 {
     public GameObject Bullet;
+    public GameObject Missile;
     public GameObject Explosion;
+    [NonSerialized]public static int Hp = 3;
     private float _timeRemaining;
     private bool _timerIsRunning;
     private bool _secondBulletShot;
@@ -16,11 +26,32 @@ public class scrPlayerController : MonoBehaviour
     private Camera _cam;
     private float _camHeight;
     private float _camWidth;
-    /*
-    private Rigidbody2D _rb;
-    private Vector2 _moveDirection = Vector2.zero;
-    */
-    // Start is called before the first frame update
+
+    
+    public InputAction ShootAction;
+    private Vector2 movement;
+    private bool shootInput;
+    private bool missileInput;
+    private int hurtTimer;
+    public static PlayerInput controls;
+
+    [NonSerialized]public bool HasMissile = true;
+    //private ButtonControl 
+    void SetUpActions()
+    {
+        controls = new PlayerInput();
+        controls.Enable();
+    }
+    void Awake()
+    {
+        SetUpActions();
+    }
+
+    private void OnMovement(InputValue value)
+    {
+        movement = value.Get<Vector2>();
+    }
+    
     void Start()
     {
         //_rb = gameObject.GetComponent<Rigidbody2D>();
@@ -30,74 +61,88 @@ public class scrPlayerController : MonoBehaviour
         _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         GameManager.GameOver = false;
         GameManager.Reload = false;
+        Hp = 3;
     }
 
+    
     // Update is called once per frame
     void Update()
     {
+        shootInput = Mathf.Abs(controls.Player.Shoot.ReadValue<float>()) > 0;
+        missileInput = Mathf.Abs(controls.Player.Missile.ReadValue<float>()) > 0;
         /*float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         _moveDirection = new Vector2(moveX, moveY).normalized;
         rb.velocity = new Vector2(_moveDirection.x * moveSpeed, _moveDirection.y * moveSpeed);*/
         float moveSpeed = 70f;
         
-        bool rightKey = Input.GetKey("d");
-        bool leftKey  = Input.GetKey("a");
-        bool upKey = Input.GetKey("w");
-        bool downKey  = Input.GetKey("s");
+        //bool rightKey = Input.GetKey("d") || Input.GetKey(KeyCode.Joystick1Button8);
+        //bool leftKey  = Input.GetKey("a") || Input.GetKey(KeyCode.Joystick1Button7);
+        //bool upKey = Input.GetKey("w") || Input.GetKey(KeyCode.Joystick1Button5);
+        //bool downKey  = Input.GetKey("s") || Input.GetKey(KeyCode.Joystick1Button6);
         //var buttonA = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("p")), Convert.ToSingle(Input.GetMouseButtonDown(0)) ));
-        var buttonA = Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown(0);
-        var buttonB = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("l")), Convert.ToSingle(Input.GetMouseButtonDown(1)) ));
+        //var buttonA = Input.GetKeyDown(KeyCode.P) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.JoystickButton16);
+        //var buttonB = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("l")), Convert.ToSingle(Input.GetMouseButtonDown(1)),  Convert.ToSingle(Input.GetKeyDown(KeyCode.Joystick1Button17))));
         //if (buttonB) SceneManager.LoadScene("MainMenu"); 
         
-        bool buttonX = Input.GetKeyDown("o");
-        bool buttonY = Input.GetKeyDown("k");
-        if (rightKey)
-        {
-            //rb.velocity = (Vector2.right * Time.deltaTime * moveSpeed);
-            transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
-            //transform.position = new Vector2(transform.position.x + moveSpeed, transform.position.y);
-        }
-        
+        //bool buttonX = Input.GetKeyDown("o") || Input.GetKeyDown(KeyCode.Joystick1Button18);
+        //bool buttonY = Input.GetKeyDown("k") || Input.GetKeyDown(KeyCode.Joystick1Button19);
 
-        if (leftKey)
+        
+        if (movement.x != 0 || movement.y != 0)
         {
-            transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
-        }
-        var rot = gameObject.transform.localRotation.eulerAngles; //get the angles
-        if (upKey)
-        {
-            transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
-            
-            //rot.Set(40f, 0f, 0f); 
-            /*if (transform.rotation.x < 40)
+            /*if (movement.x != 0 && movement.y != 0)
             {
-                rot.Set(transform.rotation.x + 1, 0f, 0f); //set the angles
+                if (movement.x > 0)
+                {
+                    movement.x = 0.707f;
+                }
+                else
+                {
+                    movement.x = -0.707f;
+                }
+                
+                if (movement.y > 0)
+                {
+                    movement.y = 0.707f;
+                }
+                else
+                {
+                    movement.y = -0.707f;
+                }
             }
             else
             {
-                rot.Set(transform.rotation.x, 0f, 0f); //set the angles
+                
             }*/
+            movement = movement.normalized;
+            transform.Translate(movement * Time.deltaTime * moveSpeed);
         }
-        if (downKey)
-        {
-            transform.Translate(Vector2.down * Time.deltaTime * moveSpeed);
-            //rot.Set(163f, 0f, 0f); 
-        }
-        if (!upKey && !downKey)
-        {
-            //rot.Set(0f, 0f, 0f); 
-        }
+
+        
+        var rot = gameObject.transform.localRotation.eulerAngles; //get the angles
+        
+        
         //gameObject.transform.localRotation = Quaternion.Euler(rot); //update the transform
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, _cam.transform.position.x-(_camWidth/2)+25, _cam.transform.position.x+(_camWidth/2)-25), Mathf.Clamp(transform.position.y, -218f, -12f));
         
         //Fire
-        if (buttonA && !_timerIsRunning)
+        if (shootInput && !_timerIsRunning)
         {
             _bulletVector = new Vector2(transform.position.x+8, transform.position.y);
             Instantiate(Bullet, _bulletVector, Quaternion.identity);
+            int chance = Random.Range(0, 3);
+            if (HasMissile && chance == 0)
+            {
+                var missileVector = new Vector2(transform.position.x, transform.position.y-5); 
+                Instantiate(Missile, missileVector, Quaternion.identity);
+            }
             _timerIsRunning = true;
             _timeRemaining = 0.20f;
+        }
+
+        if (missileInput)
+        {
             
         }
 
@@ -121,28 +166,57 @@ public class scrPlayerController : MonoBehaviour
         }
 
     }
-    
-    
     public void OnTriggerEnter2D(Collider2D other) {
+        if (hurtTimer > 0) return;
+        var maxHurtTime = 50;
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Tile"))
         {
-            Destroy(gameObject);
+            Hp--;
+            CheckHp();
+            Destroy(other.gameObject);
+            hurtTimer = maxHurtTime;
         } else if (other.gameObject.CompareTag("EnemyProjectile"))
         {
-            Destroy(gameObject);
+            Hp--;
+            CheckHp();
             Destroy(other.gameObject);
+            hurtTimer = maxHurtTime;
         }
     }
 
+    private void CheckHp()
+    {
+        if (Hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     private void OnDestroy()
     {
         if (!GameManager.GameOver)
         {
             Instantiate(Explosion, transform.position, Quaternion.identity);
             GameManager.Lives--;
+            
             print(GameManager.Lives);
         }
 
     }
-    
+
+    private void FixedUpdate()
+    {
+        if (_cam.GetComponent<scrCameraMovement>().CameraMove)
+        {
+            transform.position = new Vector3(transform.position.x+_cam.GetComponent<scrCameraMovement>().CameraSpeed, transform.position.y, transform.position.z);
+        }
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (hurtTimer > 0)
+        {
+            hurtTimer--;
+            spriteRenderer.enabled = hurtTimer % 2 ==0;
+            /*Color color = (1,0,0,1);
+            Shader.SetGlobalColor("_color",color);*/
+        }
+    }
 }

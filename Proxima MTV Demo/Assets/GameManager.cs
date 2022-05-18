@@ -8,16 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private scrPlayerController _player;
-    [HideInInspector]public static int Lives = 2;
-    [HideInInspector]public static bool GameOver = false;
-    [HideInInspector]public static bool Reload = false;
-    public enum GameState
-    {
-        Play,
-        Lose
-    }
-
-    private GameState _state = GameState.Play; 
+    [NonSerialized]public static int Lives = 2;
+    [NonSerialized]public static bool GameOver = false;
+    [NonSerialized]public static bool Reload = false;
+     
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,21 +25,14 @@ public class GameManager : MonoBehaviour
         }
         if (_player == null) _player = GameObject.FindGameObjectWithTag("Player").GetComponent<scrPlayerController>();
     }
-
-    void Start()
-    {
-        UpdateGameState(GameState.Play);
-    }
-
     void Update()
     {
         if (Lives < 0)
         {
             RestartGame();
         }
-        
-        var buttonB = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("l")), Convert.ToSingle(Input.GetMouseButtonDown(1)) ));
-        if (buttonB) SceneManager.LoadScene("MainMenu"); 
+        /*var buttonB = Convert.ToBoolean (Mathf.Max(Convert.ToSingle (Input.GetKeyDown("l")), Convert.ToSingle(Input.GetMouseButtonDown(1)) ));
+        if (buttonB) SceneManager.LoadScene("MainMenu"); */
     }
 
     public void RestartGame()
@@ -55,10 +42,6 @@ public class GameManager : MonoBehaviour
         GameOver = true;
     }
     
-    public void UpdateGameState(GameState newState)
-    {
-        
-    }
 
     
 

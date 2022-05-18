@@ -1,15 +1,16 @@
+using System;
 using UnityEngine;
 
 public class scrCameraMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     private float _cameraOffset;
-    [HideInInspector]public bool CameraMove = true;
-    
+    [NonSerialized]public bool CameraMove = true;
+    [NonSerialized]public float CameraSpeed = 1;
     private void FixedUpdate() {
         if (CameraMove)
         {
-            transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x + CameraSpeed, transform.position.y, transform.position.z);
         }
         /*if (CameraMove) {
 

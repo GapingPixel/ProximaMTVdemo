@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class scrBullet : MonoBehaviour
 {
-    public readonly int Dmg = 1;
+    public readonly int  Dmg = 1;
     private Camera _cam;
     private float _camHeight;
     private float _camWidth;
