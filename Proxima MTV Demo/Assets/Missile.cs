@@ -29,5 +29,14 @@ public class Missile : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Tile"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }

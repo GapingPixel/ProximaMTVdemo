@@ -35,7 +35,7 @@ public class scrPlayerController : MonoBehaviour
     private int hurtTimer;
     public static PlayerInput controls;
 
-    [NonSerialized]public bool HasMissile = true;
+    [NonSerialized]public bool HasMissile = false;
     //private ButtonControl 
     void SetUpActions()
     {
@@ -202,6 +202,11 @@ public class scrPlayerController : MonoBehaviour
             CheckHp();
             Destroy(other.gameObject);
             hurtTimer = maxHurtTime;
+        } 
+        else if (other.gameObject.CompareTag("PowerUp"))
+        {
+             HasMissile = true;
+             Destroy(other.gameObject);
         }
     }
 
