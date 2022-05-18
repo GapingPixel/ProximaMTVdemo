@@ -15,6 +15,7 @@ public class scrAnimExplosionEnemy : MonoBehaviour
     void OnDestroy()
     {
         //Drop Item
+        GameManager.GameOver = true;
 
     }
 }
