@@ -51,6 +51,8 @@ public class Missile : MonoBehaviour
             }
             collCount++;
             GetComponent<SpriteRenderer>().sprite = MissileHorizontal;
+            Destroy(GetComponent<PolygonCollider2D>());
+            gameObject.AddComponent<BoxCollider2D>();
         } 
     }
 
