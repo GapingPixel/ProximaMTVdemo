@@ -36,11 +36,19 @@ public class PARENTenemy : MonoBehaviour
             Hp-= other.GetComponent<scrBullet>().Dmg;
             CheckHp(ref Hp);
             Destroy(other.gameObject);
+            if (this.GetType() == typeof(Boss) || this.GetType() == typeof( EnemyVerticalSpawner))
+            {
+                SoundController.PlaySound("takeDMG");
+            }
         } else if (other.gameObject.CompareTag("PlayerMissile"))
         {
             Hp-= other.GetComponent<Missile>().Dmg;
             CheckHp(ref Hp);
             Destroy(other.gameObject);
+            if (this.GetType() == typeof(Boss) || this.GetType() == typeof( EnemyVerticalSpawner))
+            {
+                SoundController.PlaySound("takeDMG");
+            }
         }
     }
 
@@ -51,12 +59,25 @@ public class PARENTenemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     private void OnDestroy()
     {
+        if (Time.frameCount == 0 || inEditor.EditorApplicationQuit) {
+            return;
+        }
         if (GameManager.Reload) return;
         
         Instantiate(Explosion,transform.position, Quaternion.identity);
+        
+        if (this.GetType() == typeof (Boss))
+        {
+            ScoreManager.instance.AddPoint(500);
+        }
+        else
+        {
+            ScoreManager.instance.AddPoint(100);
+            SoundController.PlaySound("EnemyDie");
+        }
     }
     
 }

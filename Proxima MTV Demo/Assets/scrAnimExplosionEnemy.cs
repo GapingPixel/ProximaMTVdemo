@@ -17,7 +17,7 @@ public class scrAnimExplosionEnemy : MonoBehaviour
     void OnDestroy()
     {
         //Drop Item
-        if (Random.Range(0, 12) == 0)
+        if (Random.Range(0, 20) == 1)
         {
             Instantiate(PowerUp,transform.position,Quaternion.identity);
         }

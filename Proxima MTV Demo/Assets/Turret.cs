@@ -29,7 +29,18 @@ public class Turret : PARENTenemy
         if (!Activate) return;
         
         if (_player == null) return;
-        
+
+        switch (_spriteRenderer.flipY)
+        {
+            case true:
+                transform.localRotation = Quaternion.Euler(0, transform.position.x < _player.transform.position.x ? 0 : 180, 0);
+                break;
+            
+            case false:
+                transform.localRotation = Quaternion.Euler(0, transform.position.x > _player.transform.position.x ? 180 : 0, 0);
+                break;
+        }
+        /*
         if (transform.position.y < _player.transform.position.y)//Turret is Below
         {
             //transform.localRotation =  Quaternion.Euler(0,0,0);
@@ -38,7 +49,7 @@ public class Turret : PARENTenemy
         else //Turret is Above
         {
             transform.localRotation = Quaternion.Euler(180, transform.position.x > _player.transform.position.x ? 180 : 0, 0);
-        }
+        }*/
         
         if (Mathf.Abs(transform.position.y-_player.transform.position.y)  <= 15)
         {

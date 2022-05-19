@@ -8,15 +8,22 @@ using UnityEngine.SceneManagement;
 public class scrAnimExplosion : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float _delay;
+    private float _delay = 2;
     private GameManager _manager;
     // Use this for initialization
     void Start () {
-        Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + _delay); 
+        Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + _delay);
         _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         
-    } 
-    
+    }
+
+    void Update()
+    {
+        if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
+    }
 
     void OnDestroy()
     {

@@ -35,7 +35,7 @@ public class Missile : MonoBehaviour
         if (other.gameObject.CompareTag("Tile"))
         {
             Destroy(gameObject);
-        }
+        } 
     }
 
 

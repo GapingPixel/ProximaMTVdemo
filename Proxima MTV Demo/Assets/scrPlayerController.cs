@@ -17,6 +17,7 @@ public class scrPlayerController : MonoBehaviour
     public GameObject Bullet;
     public GameObject Missile;
     public GameObject Explosion;
+    
     [NonSerialized]public static int Hp = 3;
     private float _timeRemaining;
     private bool _timerIsRunning;
@@ -35,7 +36,7 @@ public class scrPlayerController : MonoBehaviour
     private int hurtTimer;
     public static PlayerInput controls;
 
-    [NonSerialized]public bool HasMissile = false;
+    [NonSerialized]public bool HasMissile = true;
     //private ButtonControl 
     void SetUpActions()
     {
@@ -60,6 +61,7 @@ public class scrPlayerController : MonoBehaviour
                 break;
             
         }
+
     }
 
     private void OnMovement(InputValue value)
@@ -154,6 +156,7 @@ public class scrPlayerController : MonoBehaviour
             }
             _timerIsRunning = true;
             _timeRemaining = 0.20f;
+            SoundController.PlaySound("PlayerShoot");
         }
 
         if (missileInput)
@@ -190,6 +193,10 @@ public class scrPlayerController : MonoBehaviour
             CheckHp();
             Destroy(other.gameObject);
             hurtTimer = maxHurtTime;
+            if (Hp > 0)
+            {
+                SoundController.PlaySound("PlayerHit");
+            }
         }
         else if (other.gameObject.CompareTag("Tile"))
         {
@@ -202,10 +209,15 @@ public class scrPlayerController : MonoBehaviour
             CheckHp();
             Destroy(other.gameObject);
             hurtTimer = maxHurtTime;
+            if (Hp > 0)
+            {
+                SoundController.PlaySound("PlayerHit");
+            }
         } 
         else if (other.gameObject.CompareTag("PowerUp"))
         {
              HasMissile = true;
+             SoundController.PlaySound("PickUp");
              Destroy(other.gameObject);
         }
     }
@@ -215,11 +227,16 @@ public class scrPlayerController : MonoBehaviour
         if (Hp <= 0)
         {
             Destroy(gameObject);
+            SoundController.PlaySound("PlayerDeath");
         }
     }
     
     private void OnDestroy()
     {
+        if (Time.frameCount == 0 || inEditor.EditorApplicationQuit) {
+            return;
+        }
+        
         if (!GameManager.GameOver)
         {
             Instantiate(Explosion, transform.position, Quaternion.identity);
