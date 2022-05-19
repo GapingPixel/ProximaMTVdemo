@@ -55,7 +55,10 @@ public class scrBackgroundLoop : MonoBehaviour
             {
                 lastChild.transform.SetAsFirstSibling();
                 lastChild.transform.position=new Vector3(firstChild.transform.position.x-halfObjectWidth*2,lastChild.transform.position.y, lastChild.transform.position.z);
+                
             }
+            //lastChild.transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
+            //firstChild.transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
         }
     }
     

@@ -14,7 +14,7 @@ public class scrEnemyZigZag : PARENTenemy
         Hp = 4;
     }
     
-    new void Update()
+    void Update()
     {
         if (transform.position.x < _cam.transform.position.x + _camWidth / 2)
         {

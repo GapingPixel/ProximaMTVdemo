@@ -19,18 +19,13 @@ public class PARENTenemy : MonoBehaviour
         _camWidth = _camHeight * _cam.aspect;
     }
     
-    public virtual void Update()
-    {
-        
-    }
-    
     void OnBecameInvisible()
     {
         if (!Activate) return;
         Destroy(gameObject);
     }
     
-    public void OnTriggerEnter2D(Collider2D other) {
+    public virtual void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("PlayerProjectile"))
         {
             Hp-= other.GetComponent<scrBullet>().Dmg;
@@ -50,6 +45,8 @@ public class PARENTenemy : MonoBehaviour
                 SoundController.PlaySound("takeDMG");
             }
         }
+
+        
     }
 
     private void CheckHp(ref int hp)

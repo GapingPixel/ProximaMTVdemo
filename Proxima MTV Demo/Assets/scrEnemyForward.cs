@@ -21,7 +21,7 @@ public class scrEnemyForward : PARENTenemy
         _angularVector = (Vector2)(Quaternion.Euler(0,0,180) * (Vector2.right*_speed* Time.fixedDeltaTime)); 
     }
     
-    public override void Update()
+    public void Update()
     {
         if (transform.position.x < _cam.transform.position.x + _camWidth / 2)
         {
@@ -34,7 +34,7 @@ public class scrEnemyForward : PARENTenemy
         {
             Activate = true;
         }
-        base.Update();
+        
         transform.Translate(_angularVector);
     }
     

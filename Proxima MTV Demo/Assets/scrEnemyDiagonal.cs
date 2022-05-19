@@ -16,7 +16,7 @@ public class scrEnemyDiagonal : PARENTenemy
     }
 
     // Update is called once per frame
-    new void Update ()
+    void Update ()
     {
         if (transform.position.x < _cam.transform.position.x + _camWidth / 2)
         {

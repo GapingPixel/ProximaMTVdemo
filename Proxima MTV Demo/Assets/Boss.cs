@@ -48,7 +48,7 @@ public class Boss : PARENTenemy
         Instantiate(Projectile, new Vector2(transform.position.x+7, transform.position.y-18), Quaternion.identity);
     }
     // Update is called once per frame
-    new void Update()
+    void Update()
     {
         if (_cam.transform.position.x < 3775) return;
         
