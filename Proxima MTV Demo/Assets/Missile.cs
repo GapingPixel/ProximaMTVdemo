@@ -23,7 +23,16 @@ public class Missile : MonoBehaviour
     void Update()
     {
         int speed = 100;
-        transform.Translate(new Vector2(1f,-1) * Time.deltaTime * speed);
+
+        if (collCount == 0)
+        {
+            transform.Translate(new Vector2(1f,-1) * Time.deltaTime * speed);
+        }
+        else
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * speed);
+        }
+        
         
 
         if (transform.position.x > _cam.transform.position.x + _camWidth / 2)
@@ -36,12 +45,12 @@ public class Missile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tile"))
         {
-            if (collCount == 1)
+            if (collCount >= 1)
             {
                 Destroy(gameObject);
             }
             collCount++;
-            GetComponent<SpriteRenderer>().sprite = MissileDiagonal;
+            GetComponent<SpriteRenderer>().sprite = MissileHorizontal;
         } 
     }
 
