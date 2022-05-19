@@ -9,7 +9,7 @@ public class Boss : PARENTenemy
     public GameObject Projectile;
 
     private float _startY;
-    private float _yTravelDistance = 80;
+    private float _yTravelDistance = 55;
     private float _speed = 40;
     private bool _moveUp = true;
     private bool _intro = true;
@@ -36,7 +36,7 @@ public class Boss : PARENTenemy
 
     private void FixedUpdate()
     {
-        if (_cam.transform.position.x < 2440) return;
+        if (_cam.transform.position.x < 3775) return;
         
         if (_intro) return;
         _count++;
@@ -50,12 +50,12 @@ public class Boss : PARENTenemy
     // Update is called once per frame
     new void Update()
     {
-        if (_cam.transform.position.x < 2440) return;
+        if (_cam.transform.position.x < 3775) return;
         
         _cam.GetComponent<scrCameraMovement>().CameraMove = false;
         if (_intro)
         {
-            if (transform.position.x > _cam.GetComponent<Transform>().transform.position.x+60)
+            if (transform.position.x > _cam.GetComponent<Transform>().transform.position.x+75)
             {
                 transform.Translate(Vector2.left * 30 * Time.deltaTime);
                 

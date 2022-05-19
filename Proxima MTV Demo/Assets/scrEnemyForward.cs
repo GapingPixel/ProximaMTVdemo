@@ -27,6 +27,13 @@ public class scrEnemyForward : PARENTenemy
         {
             Activate = true;
         }
+        
+        if (!Activate) return;
+        
+        if (transform.position.x < _cam.transform.position.x + _camWidth / 2)
+        {
+            Activate = true;
+        }
         base.Update();
         transform.Translate(_angularVector);
     }
