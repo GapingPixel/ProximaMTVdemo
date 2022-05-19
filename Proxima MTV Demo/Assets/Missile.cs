@@ -8,6 +8,8 @@ public class Missile : MonoBehaviour
     private Camera _cam;
     private float _camHeight;
     private float _camWidth;
+    public Sprite MissileHorizontal;
+    private int collCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,12 @@ public class Missile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tile"))
         {
-            Destroy(gameObject);
+            if (collCount == 1)
+            {
+                Destroy(gameObject);
+            }
+            collCount++;
+            GetComponent<SpriteRenderer>().sprite = MissileDiagonal;
         } 
     }
 
