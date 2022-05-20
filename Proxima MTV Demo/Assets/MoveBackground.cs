@@ -35,7 +35,7 @@ public class MoveBackground : MonoBehaviour
         {
             //1538
             Instantiate(Bg, new Vector3(transform.position.x + 960-47, transform.position.y, transform.position.z), Quaternion.identity);
-            Destroy(gameObject,10f);
+            Destroy(gameObject,13f);
             spawned = true;
         }
         
