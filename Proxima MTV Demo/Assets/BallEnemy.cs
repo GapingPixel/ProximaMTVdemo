@@ -26,7 +26,7 @@ public class BallEnemy : PARENTenemy
 
         if (!Activate) return;
 
-        
+        if (player == null) return;
 
         if (transform.position.y >= player.position.y && time+0.4f < Time.time)
         {

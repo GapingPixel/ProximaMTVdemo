@@ -53,6 +53,7 @@ public class Boss : PARENTenemy
         if (_cam.transform.position.x < 3775) return;
         
         _cam.GetComponent<scrCameraMovement>().CameraMove = false;
+        MoveBackground.moveBackground = false;
         if (_intro)
         {
             if (transform.position.x > _cam.GetComponent<Transform>().transform.position.x+75)

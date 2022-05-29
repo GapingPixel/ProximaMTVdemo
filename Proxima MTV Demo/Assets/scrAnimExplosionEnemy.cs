@@ -16,6 +16,10 @@ public class scrAnimExplosionEnemy : MonoBehaviour
     
     void OnDestroy()
     {
+        if (Time.frameCount == 0 || inEditor.EditorApplicationQuit || GameManager.GameOver) {
+            return;
+        }
+        if (GameManager.Reload) return;
         //Drop Item
         if (Random.Range(0, 20) == 1)
         {

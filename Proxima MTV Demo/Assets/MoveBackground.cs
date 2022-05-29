@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveBackground : MonoBehaviour
 {
     private int move = 0;
+    public static bool moveBackground = true;
     private bool spawned;
     private Camera cam;
     public GameObject Bg;
@@ -16,6 +17,7 @@ public class MoveBackground : MonoBehaviour
         cam = Camera.main;
         camHeight = 2f * cam.orthographicSize;
         camWidth = camHeight * cam.aspect;
+        moveBackground = true;
     }
     
     void LateUpdate() {
@@ -35,6 +37,8 @@ public class MoveBackground : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!moveBackground) return;
+        
         if (move == 1)
                 {
                     transform.position = new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z);
@@ -49,7 +53,7 @@ public class MoveBackground : MonoBehaviour
         {
             //1538
             Instantiate(Bg, new Vector3(transform.position.x + 960-47, transform.position.y, transform.position.z), Quaternion.identity);
-            Destroy(gameObject,13f);
+            Destroy(gameObject,50f);
             spawned = true;
         }
         

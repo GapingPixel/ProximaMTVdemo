@@ -59,7 +59,7 @@ public class PARENTenemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (Time.frameCount == 0 || inEditor.EditorApplicationQuit) {
+        if (Time.frameCount == 0 || inEditor.EditorApplicationQuit || GameManager.GameOver) {
             return;
         }
         if (GameManager.Reload) return;

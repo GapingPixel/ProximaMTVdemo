@@ -6,7 +6,7 @@ using UnityEngine;
 public class BossDestroyAnim : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float _delay =.5f;
+    private float _delay = 2;
     private GameManager _manager;
 
     private DontDestroyOnLoad soundtrack;
@@ -15,11 +15,13 @@ public class BossDestroyAnim : MonoBehaviour
         Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + _delay); 
         _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         soundtrack = GameObject.FindGameObjectWithTag("Music").GetComponent<DontDestroyOnLoad>();
+        scrPlayerController.FinishLevel = true;
     }
 
     void OnDestroy()
     {
-        GameManager.RestartGame();
+        GameManager.LevelCompleted = true;
+        //GameManager.RestartGame();
         soundtrack.Destroyf();
 
     }

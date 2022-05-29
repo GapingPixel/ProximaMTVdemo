@@ -28,7 +28,7 @@ public class scrPlayerController : MonoBehaviour
     private float _camHeight;
     private float _camWidth;
 
-    
+    public static bool FinishLevel;
     public InputAction ShootAction;
     private Vector2 movement;
     private bool shootInput;
@@ -59,11 +59,8 @@ public class scrPlayerController : MonoBehaviour
             case 3:
                 transform.position = new Vector3(200, transform.position.y, transform.position.z);
                 break;
-            
         }
-
     }
-
     private void OnMovement(InputValue value)
     {
         movement = value.Get<Vector2>();
@@ -79,19 +76,30 @@ public class scrPlayerController : MonoBehaviour
         GameManager.GameOver = false;
         GameManager.Reload = false;
         Hp = 3;
+        _cam.GetComponent<scrCameraMovement>().CameraMove = true;
     }
 
     
     // Update is called once per frame
     void Update()
     {
+        float moveSpeed = 70f;
+        if (FinishLevel)
+        {
+            if (transform.position.x < 3970)
+            {
+                transform.Translate(Vector2.right * Time.deltaTime * moveSpeed/2);
+            }
+            return;
+        }
+        
         shootInput = Mathf.Abs(controls.Player.Shoot.ReadValue<float>()) > 0;
         missileInput = Mathf.Abs(controls.Player.Missile.ReadValue<float>()) > 0;
         /*float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         _moveDirection = new Vector2(moveX, moveY).normalized;
         rb.velocity = new Vector2(_moveDirection.x * moveSpeed, _moveDirection.y * moveSpeed);*/
-        float moveSpeed = 70f;
+        
         
         //bool rightKey = Input.GetKey("d") || Input.GetKey(KeyCode.Joystick1Button8);
         //bool leftKey  = Input.GetKey("a") || Input.GetKey(KeyCode.Joystick1Button7);
@@ -135,11 +143,7 @@ public class scrPlayerController : MonoBehaviour
             movement = movement.normalized;
             transform.Translate(movement * Time.deltaTime * moveSpeed);
         }
-
-        
         var rot = gameObject.transform.localRotation.eulerAngles; //get the angles
-        
-        
         //gameObject.transform.localRotation = Quaternion.Euler(rot); //update the transform
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, _cam.transform.position.x-(_camWidth/2)+25, _cam.transform.position.x+(_camWidth/2)-25), Mathf.Clamp(transform.position.y, -218f, -12f));
         
@@ -158,12 +162,10 @@ public class scrPlayerController : MonoBehaviour
             _timeRemaining = 0.20f;
             SoundController.PlaySound("PlayerShoot");
         }
-
         if (missileInput)
         {
             
         }
-
         if (_timerIsRunning)
         {
             if (_timeRemaining > 0)
@@ -185,6 +187,8 @@ public class scrPlayerController : MonoBehaviour
 
     }
     public void OnTriggerEnter2D(Collider2D other) {
+        if (FinishLevel) return;
+        
         if (hurtTimer > 0) return;
         var maxHurtTime = 50;
         if (other.gameObject.CompareTag("Enemy"))
@@ -241,18 +245,15 @@ public class scrPlayerController : MonoBehaviour
         {
             Instantiate(Explosion, transform.position, Quaternion.identity);
             GameManager.Lives--;
-            
+            _cam.GetComponent<scrCameraMovement>().CameraMove = false;
             print(GameManager.Lives);
+            MoveBackground.moveBackground = false;
         }
 
     }
 
     private void FixedUpdate()
     {
-        if (_cam.GetComponent<scrCameraMovement>().CameraMove)
-        {
-            transform.position = new Vector3(transform.position.x+_cam.GetComponent<scrCameraMovement>().CameraSpeed, transform.position.y, transform.position.z);
-        }
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         if (hurtTimer > 0)
         {
@@ -261,5 +262,11 @@ public class scrPlayerController : MonoBehaviour
             /*Color color = (1,0,0,1);
             Shader.SetGlobalColor("_color",color);*/
         }
+        if (FinishLevel) return;
+        if (_cam.GetComponent<scrCameraMovement>().CameraMove)
+        {
+            transform.position = new Vector3(transform.position.x+_cam.GetComponent<scrCameraMovement>().CameraSpeed, transform.position.y, transform.position.z);
+        }
+        
     }
 }

@@ -29,7 +29,7 @@ public class EnemyVerticalSpawner : PARENTenemy
         if (!Activate) return;
 
         
-        if (time+1f < Time.time)
+        if (time+1f < Time.time && !GameManager.LevelCompleted)
         {
             Instantiate( ballEn,new Vector2(transform.position.x, transform.position.y+8f) ,  Quaternion.identity);
             time = Time.time;

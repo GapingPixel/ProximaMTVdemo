@@ -21,11 +21,6 @@ public class SoundController : MonoBehaviour
         enemyDieSound = Resources.Load<AudioClip>("Sounds/GradiusSounds/EnemyDie");
         
     }
-
-    void Update()
-    {
-        //audioSrc.PlayOneShot(playerDeathSound);
-    }
     
     public static void PlaySound (string clip)
     {
@@ -33,7 +28,6 @@ public class SoundController : MonoBehaviour
         {
             case "PlayerDeath":
                 audioSrc.PlayOneShot(playerDeathSound);
-                
                 break;
             
             case "PlayerHit":
