@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public ScoreManager ScoreScript;
     public static bool LevelCompleted = false; 
-    [NonSerialized]public static int Lives = 2;
+    [NonSerialized]public static int Lives = 0;
     [NonSerialized]public static int Checkpoint = 0;
     [NonSerialized]public static bool GameOver = false;
     [NonSerialized]public static bool Reload = false;
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [NonSerialized]public static float WaitForRestart;
 
     
-    private scrPlayerController _player;
+    private PlayerController _player;
     
     // Start is called before the first frame update
     void Awake()
@@ -29,24 +29,21 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Destroy the GameObject, this component is attached to
         }
-        if (_player == null) _player = GameObject.FindGameObjectWithTag("Player").GetComponent<scrPlayerController>();
+        if (_player == null) _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         
     }
     void Update()
     {
-        
         if (Lives < 0)
         {
             PopGameOverScreen();
             
         }
-
         if (LevelCompleted )
         {
             PopGameOverScreen();
             
         }
-        
     }
 
     public void PopGameOverScreen()
@@ -84,7 +81,7 @@ public class GameManager : MonoBehaviour
         GameOverScreen = false;
         LevelCompleted = false;
         ScoreManager.Score = 0;
-        scrPlayerController.FinishLevel = false;
+        PlayerController.FinishLevel = false;
 
     }
     

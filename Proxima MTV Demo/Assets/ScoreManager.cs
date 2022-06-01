@@ -29,13 +29,13 @@ public class ScoreManager : MonoBehaviour
         ScoreText.text = "1P   " + Score.ToString();
         HighScoreText.text = "HI  " + HighScore.ToString();
         
-    }
+    } 
 
     void Update()
     {
         if (GameManager.GameOverScreen)
         {
-            ScoreTextObj.transform.position = new Vector3(transform.position.x,121.8f,transform.position.z);
+            ScoreTextObj.transform.position = new Vector3(transform.position.x,400f,transform.position.z);
             ScoreText.text = "Score Reach: " + Score.ToString();
             HighScoreTextObj.transform.position = new Vector3(transform.position.x+4000,transform.position.y,transform.position.z);
             GameOverText.text = "Game Over";

@@ -70,7 +70,7 @@ public class Boss : PARENTenemy
         //-111 is middle of the screen
         if (Hp <= 10)
         {
-            _spriteRenderer.sprite = Sprite[1];
+            //_spriteRenderer.sprite = Sprite[1];
             switch (_moveUp)
             {
                 case true:

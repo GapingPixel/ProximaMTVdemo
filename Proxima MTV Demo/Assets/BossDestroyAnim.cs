@@ -15,7 +15,7 @@ public class BossDestroyAnim : MonoBehaviour
         Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + _delay); 
         _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         soundtrack = GameObject.FindGameObjectWithTag("Music").GetComponent<DontDestroyOnLoad>();
-        scrPlayerController.FinishLevel = true;
+        PlayerController.FinishLevel = true;
     }
 
     void OnDestroy()
