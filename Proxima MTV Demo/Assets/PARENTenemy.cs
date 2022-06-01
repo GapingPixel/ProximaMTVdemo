@@ -22,13 +22,14 @@ public class PARENTenemy : MonoBehaviour
     void OnBecameInvisible()
     {
         if (!Activate) return;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
     
     public virtual void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("PlayerProjectile"))
         {
-            Hp-= other.GetComponent<scrBullet>().Dmg;
+            Hp-= other.GetComponent<Bullet>().Dmg;
             CheckHp(ref Hp);
             Destroy(other.gameObject);
             if (this.GetType() == typeof(Boss) || this.GetType() == typeof( EnemyVerticalSpawner))

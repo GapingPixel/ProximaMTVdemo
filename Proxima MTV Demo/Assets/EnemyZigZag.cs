@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class scrEnemyZigZag : PARENTenemy
+public class EnemyZigZag : PARENTenemy
 {
     private float _vspeed;
     private float _ystart;

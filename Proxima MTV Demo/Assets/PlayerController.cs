@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         GameManager.GameOver = false;
         GameManager.Reload = false;
         Hp = 3;
-        _cam.GetComponent<scrCameraMovement>().CameraMove = true;
+        _cam.GetComponent<CameraMovement>().CameraMove = true;
 
         Sprite.sprite = PlayerMovementSprite[moveSpriteCount];
     }
@@ -254,7 +254,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(Explosion, transform.position, Quaternion.identity);
             GameManager.Lives--;
-            _cam.GetComponent<scrCameraMovement>().CameraMove = false;
+            _cam.GetComponent<CameraMovement>().CameraMove = false;
             print(GameManager.Lives);
             MoveBackground.moveBackground = false;
         }
@@ -302,9 +302,9 @@ public class PlayerController : MonoBehaviour
             Shader.SetGlobalColor("_color",color);*/
         }
         if (FinishLevel) return;
-        if (_cam.GetComponent<scrCameraMovement>().CameraMove)
+        if (_cam.GetComponent<CameraMovement>().CameraMove)
         {
-            transform.position = new Vector3(transform.position.x+_cam.GetComponent<scrCameraMovement>().CameraSpeed, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x+_cam.GetComponent<CameraMovement>().CameraSpeed, transform.position.y, transform.position.z);
         }
         
     }

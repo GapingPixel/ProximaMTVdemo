@@ -5,7 +5,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class scrAnimExplosion : MonoBehaviour
+public class AnimExplosion : MonoBehaviour
 {
     // Start is called before the first frame update
     private float _delay = 2;

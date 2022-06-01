@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class scrEnemyForward : PARENTenemy
+public class EnemyForward : PARENTenemy
 {
     
     private int _count;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class scrBullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public readonly int  Dmg = 1;
     private Camera _cam;

@@ -6911,7 +6911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f740c17d3e5cbfd46993ccf6c5452e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyForward: {fileID: 4513477136163949023, guid: 16a02d04215f2564490ee25548e988c4, type: 3}
+  EnemyForwardObj: {fileID: 4513477136163949023, guid: 16a02d04215f2564490ee25548e988c4, type: 3}
 --- !u!4 &1097825370
 Transform:
   m_ObjectHideFlags: 0
@@ -12570,6 +12570,22 @@ PrefabInstance:
     - target: {fileID: 1167978787083548721, guid: 33b603cdabb2b414ca1b53f72b5efd43, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167978787083548725, guid: 33b603cdabb2b414ca1b53f72b5efd43, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.505618
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167978787083548725, guid: 33b603cdabb2b414ca1b53f72b5efd43, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.51282054
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167978787083548725, guid: 33b603cdabb2b414ca1b53f72b5efd43, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167978787083548725, guid: 33b603cdabb2b414ca1b53f72b5efd43, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 1167978787083548726, guid: 33b603cdabb2b414ca1b53f72b5efd43, type: 3}
       propertyPath: PlayerMovementSprite.Array.size

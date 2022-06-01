@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class scrAnimExplosionEnemy : MonoBehaviour
+public class AnimExplosionEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     private float _delay;

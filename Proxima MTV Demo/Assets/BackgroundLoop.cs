@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class scrBackgroundLoop : MonoBehaviour
+public class BackgroundLoop : MonoBehaviour
 {
     public GameObject[] Levels;
     private Camera _cam;

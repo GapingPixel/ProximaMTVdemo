@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class scrEnemyDiagonal : PARENTenemy
+public class EnemyDiagonal : PARENTenemy
 {
     private SpriteRenderer _spriteRenderer;
     public Sprite[] Sprite;

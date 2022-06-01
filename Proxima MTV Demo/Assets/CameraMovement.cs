@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class scrCameraMovement : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     private float _cameraOffset;
