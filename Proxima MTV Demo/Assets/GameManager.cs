@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public ScoreManager ScoreScript;
     public static bool LevelCompleted = false; 
-    [NonSerialized]public static int Lives = 0;
+    [NonSerialized]public static int Lives = 2;
     [NonSerialized]public static int Checkpoint = 0;
     [NonSerialized]public static bool GameOver = false;
     [NonSerialized]public static bool Reload = false;

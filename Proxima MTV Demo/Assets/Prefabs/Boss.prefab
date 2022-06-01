@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c7706bb372a5348a0903ab3767d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 30
+  Hp: 45
   Explosion: {fileID: 8563354766998473389, guid: deaf86e40203e1b45abe54141491d60e, type: 3}
   _cam: {fileID: 0}
   _camHeight: 0

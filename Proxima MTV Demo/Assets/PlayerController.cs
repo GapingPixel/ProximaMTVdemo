@@ -32,12 +32,12 @@ public class PlayerController : MonoBehaviour
     public InputAction ShootAction;
 
     public SpriteRenderer Sprite;
-    public Sprite[] MoveUp, MoveDown;
+    public Sprite[] PlayerMovementSprite;
     
     private Vector2 movement;
     private bool shootInput;
     private bool missileInput;
-    private int hurtTimer, moveSpriteCount;
+    private int hurtTimer, moveSpriteCount = 2;
     public static PlayerInput controls;
 
     [NonSerialized]public bool HasMissile = false;
@@ -81,6 +81,8 @@ public class PlayerController : MonoBehaviour
         GameManager.Reload = false;
         Hp = 3;
         _cam.GetComponent<scrCameraMovement>().CameraMove = true;
+
+        Sprite.sprite = PlayerMovementSprite[moveSpriteCount];
     }
 
     
@@ -265,25 +267,20 @@ public class PlayerController : MonoBehaviour
             animMovement = false;
             if (movement.y == 0) {
                 
-                if (Sprite.sprite == MoveDown[moveSpriteCount]) {
+                if (moveSpriteCount < 2) {
+                    moveSpriteCount++;
+                } else if (moveSpriteCount > 2) {
                     moveSpriteCount--;
-                    if (moveSpriteCount < 0) moveSpriteCount = 0;
-                    Sprite.sprite = MoveDown[moveSpriteCount];
-                } else if (Sprite.sprite == MoveUp[moveSpriteCount]) {
-                    moveSpriteCount--;
-                    if (moveSpriteCount < 0) moveSpriteCount = 0;
-                    Sprite.sprite = MoveUp[moveSpriteCount];
                 }
-
-                
+                Sprite.sprite = PlayerMovementSprite[moveSpriteCount];
             } else if (movement.y < 0) {
-                moveSpriteCount++;
-                if (moveSpriteCount > 2) moveSpriteCount = 2;
-                Sprite.sprite = MoveDown[moveSpriteCount];
+                moveSpriteCount--;
+                if (moveSpriteCount < 0) moveSpriteCount = 0;
+                Sprite.sprite = PlayerMovementSprite[moveSpriteCount];
             } else if (movement.y > 0) {
                 moveSpriteCount++;
-                if (moveSpriteCount > 2) moveSpriteCount = 2;
-                Sprite.sprite = MoveUp[moveSpriteCount];
+                if (moveSpriteCount > 4) moveSpriteCount = 4;
+                Sprite.sprite = PlayerMovementSprite[moveSpriteCount];
             }
         } else {
             animMovement = true;
@@ -297,8 +294,6 @@ public class PlayerController : MonoBehaviour
             moveSpriteCount--;
             if (moveSpriteCount < 0) moveSpriteCount = 0;
         }*/
-           
-        
         if (hurtTimer > 0)
         {
             hurtTimer--;
