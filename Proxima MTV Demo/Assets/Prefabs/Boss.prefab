@@ -110,6 +110,7 @@ MonoBehaviour:
   - {fileID: -196763628, guid: 6fabd31245c6cac47b56c58fda7e46d0, type: 3}
   - {fileID: 1949328262, guid: 6fabd31245c6cac47b56c58fda7e46d0, type: 3}
   Projectile: {fileID: 6281673879726677427, guid: cd2f605d8468ce84e987cfe4473aed5c, type: 3}
+  Anim: {fileID: 8172901282407185414}
 --- !u!50 &5448040827936926243
 Rigidbody2D:
   serializedVersion: 4

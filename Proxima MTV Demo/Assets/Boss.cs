@@ -16,6 +16,8 @@ public class Boss : PARENTenemy
     //private Camera _cam;
     private GameManager _manager;
     private int _count;
+
+    public Animator Anim;
     // Start is called before the first frame update
     void Awake()
     {
@@ -70,6 +72,7 @@ public class Boss : PARENTenemy
         //-111 is middle of the screen
         if (Hp <= 10)
         {
+            Anim.Play("BossUpdated Damaged");
             //_spriteRenderer.sprite = Sprite[1];
             switch (_moveUp)
             {
