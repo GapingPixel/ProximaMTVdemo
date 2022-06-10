@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.SceneManagement;
+ #if UNITY_EDITOR
+ using UnityEditor;
+ using UnityEditor.SceneManagement;
+ #endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class AnimExplosion : MonoBehaviour
 {
