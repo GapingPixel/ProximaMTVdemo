@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4005307536973692010
 SpriteRenderer:
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -795582661
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 839965208, guid: 9adc004f86d67b04ebeeca3e82145dda, type: 3}
+  m_Sprite: {fileID: -1808737796, guid: e32b9210425a1f0438043aa4c39be5fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 3008160703026248401}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6b57b12340e623443b8f39e51cf1b882, type: 2}
+  m_Controller: {fileID: 9100000, guid: 399098da9397e84409f76ff3ff303272, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

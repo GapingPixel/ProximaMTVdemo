@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7689586857181429382}
   - component: {fileID: 3252069680927226881}
   - component: {fileID: 5486919066782341742}
-  - component: {fileID: 6721722846648910458}
+  - component: {fileID: 5849703460385864616}
   m_Layer: 30
   m_Name: Missile
   m_TagString: PlayerMissile
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1599796279
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b6aad5c75a8e07c4e8168ca88575137d, type: 3}
+  m_Sprite: {fileID: -138906418, guid: 1403fc0c5e42486429d108a3f3b4a4f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14e0ac5baca5054f8b669e482e0b104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MissileHorizontal: {fileID: 21300000, guid: c2509a41189e61b4a92a37d65d856676, type: 3}
+  MissileHorizontal: {fileID: 1842648142, guid: 1403fc0c5e42486429d108a3f3b4a4f4, type: 3}
 --- !u!50 &5486919066782341742
 Rigidbody2D:
   serializedVersion: 4
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &6721722846648910458
+--- !u!60 &5849703460385864616
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +137,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 1}
-    oldSize: {x: 7, y: 8}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 7, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -146,10 +146,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.26889038, y: -1.6495285}
-      - {x: -0.6703758, y: -2.515007}
-      - {x: 3.6238365, y: -6.6774673}
-      - {x: 5.9611893, y: -9.088974}
-      - {x: 7.7919846, y: -7.4147415}
-      - {x: 3.3806458, y: 1.1962891}
+    - - {x: -3.2326946, y: 2.1669998}
+      - {x: -4.6394215, y: 0.3019104}
+      - {x: -0.8284626, y: -3.297371}
+      - {x: 0.97341156, y: -4.042618}
+      - {x: 3.0907707, y: -4.014488}
+      - {x: 3.0753174, y: -0.94132996}
+      - {x: -1.3445415, y: 3.7016068}
   m_UseDelaunayMesh: 0

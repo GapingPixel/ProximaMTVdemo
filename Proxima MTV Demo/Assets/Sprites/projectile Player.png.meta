@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ca09bf3d63084474fb655f8cdb97809d
+guid: 1403fc0c5e42486429d108a3f3b4a4f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -118,106 +118,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: projectile_0
+      name: projectile Player_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 42
-        width: 14
-        height: 14
-      alignment: 9
-      pivot: {x: 0.5, y: 0.42857143}
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6cded7ba6a35b1488d372f22eeb075a
-      internalID: 1446297083
+      spriteID: 269e83858d0386948a96c8784f9ca526
+      internalID: -630793954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectile_1
+      name: projectile Player_1
       rect:
         serializedVersion: 2
-        x: 14
-        y: 42
-        width: 14
-        height: 14
-      alignment: 9
-      pivot: {x: 0.64285713, y: 0.42857143}
+        x: 8
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 790e0fbaeb3ce3041a36748f92256aad
-      internalID: 649892313
+      spriteID: 7338ba57f214f0e4ebf1d373157050ad
+      internalID: -1907772941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectile_2
+      name: projectile Player_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0400f80e3dd8964bbd6ab604c013930
+      internalID: -1158279916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: projectile Player_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 28
-        width: 14
-        height: 14
+        y: 0
+        width: 8
+        height: 8
       alignment: 9
-      pivot: {x: 0.5, y: 0.2857143}
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72cf5ecddc4a7154d99352f90dd4ad5f
-      internalID: -1182215657
+      spriteID: f199fefe9296e2d48ab5ae27cd500aac
+      internalID: 1842648142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: projectile_3
+      name: projectile Player_4
       rect:
         serializedVersion: 2
-        x: 14
-        y: 28
-        width: 14
-        height: 14
-      alignment: 9
-      pivot: {x: 0.64285713, y: 0.2857143}
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bf70a855e29b034bb90709f7a581e5e
-      internalID: -36185383
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: projectile_4
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 14
-        width: 14
-        height: 14
-      alignment: 9
-      pivot: {x: 0.64285713, y: 0.14285715}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e34af03c230b8b34db20f3e4bb36b990
-      internalID: -702949282
+      spriteID: c83f5b591dc506743868edfeca3a3717
+      internalID: -138906418
       vertices: []
       indices: 
       edges: []
@@ -233,11 +233,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      projectile_0: 1446297083
-      projectile_4: -702949282
-      projectile_1: 649892313
-      projectile_3: -36185383
-      projectile_2: -1182215657
+      projectile Player_4: -138906418
+      projectile Player_0: -630793954
+      projectile Player_2: -1158279916
+      projectile Player_1: -1907772941
+      projectile Player_3: 1842648142
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
