@@ -52,7 +52,7 @@ public class Boss : PARENTenemy
     // Update is called once per frame
     void Update()
     {
-        if (_cam.transform.position.x < 3775) return;
+        if (_cam.transform.position.x < 5900) return;
         
         _cam.GetComponent<CameraMovement>().CameraMove = false;
         MoveBackground.moveBackground = false;

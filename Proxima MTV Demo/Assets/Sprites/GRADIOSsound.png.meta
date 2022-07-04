@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa2b38e03271c6149b303a7dc910d288
+guid: 55c55f8e0d57f3b4b86a44f272f9e17e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 4_0
+      name: GRADIOSsound_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 56
-        width: 56
-        height: 56
+        y: 0
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0f5a6f9a263ba5418a55da3900ed17b
-      internalID: -1354851865
+      spriteID: bbd37bcd5534fb14c99ca9918e47c032
+      internalID: 672527822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4_1
+      name: GRADIOSsound_1
       rect:
         serializedVersion: 2
-        x: 56
-        y: 56
-        width: 56
-        height: 56
+        x: 18
+        y: 0
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,50 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 065b323c96ce1b84d9f74f773e35fd65
-      internalID: -997566933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4_2
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 56
-        width: 56
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5538c58991cd9c9428235d4d5a7ec055
-      internalID: -1718242809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 4_3
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 56
-        width: 56
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e505a8e6c50ddc49a41e73ce9c3cfc3
-      internalID: 943385610
+      spriteID: 0e13365badbc6df4183731289ebdc428
+      internalID: 2127845182
       vertices: []
       indices: 
       edges: []
@@ -212,10 +170,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      4_3: 943385610
-      4_0: -1354851865
-      4_2: -1718242809
-      4_1: -997566933
+      GRADIOSsound_0: 672527822
+      GRADIOSsound_1: 2127845182
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

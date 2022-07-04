@@ -23,7 +23,7 @@ public class JumpingEnemy : PARENTenemy
         
         if (!Activate) return;
         
-        transform.Translate(new Vector2(-75,vspd) *Time.deltaTime);
+        transform.Translate(new Vector2(-85,vspd) *Time.deltaTime);
         vspd = vspd - gravity;
     }
 

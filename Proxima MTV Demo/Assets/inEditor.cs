@@ -11,7 +11,7 @@ public class inEditor : MonoBehaviour
     }
     
     void OnEnable() {
-        EditorApplication.wantsToQuit += WantsToQuit;
+        //EditorApplication.wantsToQuit += WantsToQuit;
     }
     
 }

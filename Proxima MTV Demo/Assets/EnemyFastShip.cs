@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyZigZag : PARENTenemy
+public class EnemyFastShip : PARENTenemy
 {
     private float _vspeed;
     private float _ystart;
@@ -11,7 +11,7 @@ public class EnemyZigZag : PARENTenemy
     void Start()
     {
         _ystart = transform.position.y;
-        Hp = 4;
+        Hp = 1;
     }
     
     void Update()
@@ -21,7 +21,7 @@ public class EnemyZigZag : PARENTenemy
             Activate = true;
         }
         if (!Activate) return;
-        float hspeed = -100f;
+        float hspeed = -250f;
         transform.Translate(new Vector2(hspeed,_vspeed) *Time.deltaTime);
     }
     
@@ -30,9 +30,9 @@ public class EnemyZigZag : PARENTenemy
     {
         if (!Activate) return;
 
-        float maxvspd = 75;
-        float _spd = 6f;
-        float _yBound = 10;
+        float maxvspd = 30;
+        float _spd = 10f;
+        float _yBound = 2;
         switch (_goingUp)
         {
             case true:

@@ -6,7 +6,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     [HideInInspector]public Vector2 BulletVector = Vector2.zero;
 
-    private float _speed = 65;
+    private float _speed = 90;
     // Start is called before the first frame update
     void Start()
     {

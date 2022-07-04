@@ -6,7 +6,7 @@ public class EnemyDiagonal : PARENTenemy
     public Sprite[] Sprite;
     private Transform _player;
 
-    private int speed = 60;
+    private int speed = 80;
     private Vector2 _angularVector;
     // Start is called before the first frame update
     void Start()

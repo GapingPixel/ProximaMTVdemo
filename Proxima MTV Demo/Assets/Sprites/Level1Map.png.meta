@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa2b38e03271c6149b303a7dc910d288
+guid: a7ece8e096e054f4aa78b1cf0939f03b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -118,85 +118,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 4_0
+      name: Level1Map_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 56
-        width: 56
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8
+        y: 143
+        width: 64
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0f5a6f9a263ba5418a55da3900ed17b
-      internalID: -1354851865
+      spriteID: f6e06a9108cb62d40867b19fb9b3d98a
+      internalID: 899950976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4_1
+      name: Level1Map_1
       rect:
         serializedVersion: 2
-        x: 56
-        y: 56
-        width: 56
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 80
+        y: 168
+        width: 64
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 065b323c96ce1b84d9f74f773e35fd65
-      internalID: -997566933
+      spriteID: 02a9eecfe42e27a42a28d5f0a1fbe640
+      internalID: -2045445058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4_2
+      name: Level1Map_2
       rect:
         serializedVersion: 2
-        x: 112
-        y: 56
-        width: 56
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 80
+        y: 144
+        width: 64
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5538c58991cd9c9428235d4d5a7ec055
-      internalID: -1718242809
+      spriteID: 7cf25fdd387e73046b720db5e6067b35
+      internalID: 600229464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 4_3
+      name: Level1Map_3
       rect:
         serializedVersion: 2
-        x: 168
-        y: 56
-        width: 56
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8
+        y: 96
+        width: 64
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e505a8e6c50ddc49a41e73ce9c3cfc3
-      internalID: 943385610
+      spriteID: 9ea628c0faa062d41868989c817bd918
+      internalID: 1275075087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1Map_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 120
+        width: 64
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da74987ea6bde3f44b6243d9f8c97d0f
+      internalID: 844484696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1Map_5
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 56
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b64b7e2ed5769642a61a673801c68f6
+      internalID: -728016020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1Map_6
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 48
+        width: 64
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6650822650ce9094c9fb3fc4dddbacbe
+      internalID: -1543913270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1Map_7
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 56
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caeb0643556305b48bea200084f08b81
+      internalID: 53263297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1Map_8
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 64
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e39f45563e47141800a63f808211d5
+      internalID: 569074452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1Map_9
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 32
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9671d9c0c280c6408acca8d194b26c0
+      internalID: 560298800
       vertices: []
       indices: 
       edges: []
@@ -212,10 +338,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      4_3: 943385610
-      4_0: -1354851865
-      4_2: -1718242809
-      4_1: -997566933
+      Level1Map_7: 53263297
+      Level1Map_8: 569074452
+      Level1Map_4: 844484696
+      Level1Map_5: -728016020
+      Level1Map_1: -2045445058
+      Level1Map_0: 899950976
+      Level1Map_3: 1275075087
+      Level1Map_6: -1543913270
+      Level1Map_2: 600229464
+      Level1Map_9: 560298800
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
