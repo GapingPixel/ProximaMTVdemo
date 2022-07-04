@@ -19,7 +19,7 @@ public class VolumeToggle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioToggle.isOn = PlayerPrefs.GetInt(parameterName) == 1 ? true : false;
+        audioToggle.isOn = true;//PlayerPrefs.GetInt(parameterName) == 1 ? true : false;
         audioMixer.GetFloat(parameterName, out audioDB);
         audioMixer.SetFloat(parameterName, audioToggle.isOn ? audioDB : -80);
         audioToggle.onValueChanged.AddListener(ToggleAudio);
