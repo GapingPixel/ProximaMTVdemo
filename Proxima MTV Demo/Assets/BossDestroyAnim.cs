@@ -9,12 +9,12 @@ public class BossDestroyAnim : MonoBehaviour
     private float _delay = 2;
     private GameManager _manager;
 
-    private DontDestroyOnLoad soundtrack;
+    private DontDestroyBehavior soundtrack;
     // Use this for initialization
     void Start () {
         Destroy (gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + _delay); 
         _manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        soundtrack = GameObject.FindGameObjectWithTag("Music").GetComponent<DontDestroyOnLoad>();
+        soundtrack = GameObject.FindGameObjectWithTag("Music").GetComponent<DontDestroyBehavior>();
         PlayerController.FinishLevel = true;
     }
 
@@ -22,7 +22,7 @@ public class BossDestroyAnim : MonoBehaviour
     {
         GameManager.LevelCompleted = true;
         //GameManager.RestartGame();
-        soundtrack.Destroyf();
+        soundtrack.DestroyF();
 
     }
 }

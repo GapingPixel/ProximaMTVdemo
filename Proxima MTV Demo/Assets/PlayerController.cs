@@ -83,6 +83,11 @@ public class PlayerController : MonoBehaviour
         _cam.GetComponent<CameraMovement>().CameraMove = true;
 
         Sprite.sprite = PlayerMovementSprite[moveSpriteCount];
+
+        //Invincibility at respawn
+        if (GameManager.Lives < 2) {
+            hurtTimer = 50;
+        }
     }
 
     
@@ -99,8 +104,9 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        shootInput = Mathf.Abs(controls.Player.Shoot.ReadValue<float>()) > 0;
-        missileInput = Mathf.Abs(controls.Player.Missile.ReadValue<float>()) > 0;
+
+        shootInput = controls.Player.Shoot.triggered && controls.Player.Shoot.ReadValue<float>() > 0;
+        missileInput = controls.Player.Missile.ReadValue<float>() > 0;
         /*float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         _moveDirection = new Vector2(moveX, moveY).normalized;
